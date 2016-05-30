@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Employees;
+use App\Salaries;
 
-class Employees extends Controller
+class EmployeesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +17,9 @@ class Employees extends Controller
      */
     public function index()
     {
-        echo "Yow";
+        $employees = Employees::with('salaries')->get();
+        // dd($employees->first()->salaries()->toArray());
+        // echo "<pre>"; print_r($employees->first()->toArray()->salaries()); echo "</pre>";
     }
 
     /**

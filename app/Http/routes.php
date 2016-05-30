@@ -12,9 +12,10 @@
 */
 
 Route::group(['middleware' => 'web'], function () {
-    Route::resource('employees', 'Employees');
-});
-
-Route::get('/', function () {
-    return view('welcome');
+        
+    Route::get('/', function() {
+        return view('master');
+    });
+    
+    Route::resource('employees', 'EmployeesController');
 });

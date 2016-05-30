@@ -19,6 +19,7 @@ class CreateTitlesTable extends Migration {
 			$table->date('from_date');
 			$table->date('to_date')->nullable();
 			$table->primary(['emp_no','title','from_date']);
+            $table->foreign('emp_no')->references('emp_no')->on('employees');
 		});
 	}
 
